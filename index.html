@@ -9,18 +9,27 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">{{ message }}</div>
+<div id="app">
+<el-btn></el-btn>
+</div>
 
 <script>
   const { createApp } = Vue
+  const button = {
+    template: `<button class="btn"><slot/></button>`,
+    props: ['type'],
+    data: () => ({ item: 'test' }),
+  }
 
-  createApp({
+  const app = createApp({
     data() {
       return {
         message: 'Hello Vue!'
       }
     }
-  }).mount('#app')
+  })
+  app.mount('#app')
+  app.component('el-btn', button2)
 </script>
 
 </body>
